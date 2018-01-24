@@ -41,6 +41,10 @@ public class User {
 	@JoinColumn(name = "id_user")
 	private Collection<Tweet> tweets;
 	
+	@OneToMany
+	@JoinColumn(name = "user_id")
+	private Collection<Comment> comments;
+	
 	
 	public Collection<Tweet> getTweets() {
 		return tweets;

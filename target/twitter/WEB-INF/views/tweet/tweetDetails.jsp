@@ -23,5 +23,27 @@
 	<div>
 		<b>Text</b> <br /> ${tweet.text}
 	</div>
+	<h5>Comments</h5>
+	<table>
+		<c:forEach items="${comments}" var="comment">
+			<tr>
+				<td>${comment.text}</td>
+			</tr>
+			<tr>
+				<td>${comment.user.username}</td>
+			</tr>
+		</c:forEach>
+		
+	</table>
+	<f:form action="" method="post" modelAttribute="newComment">
+		<div>
+			New Comment: <br />
+			<f:textarea path="text" rows="3" cols="30" />
+		</div>
+		<div>
+			<input type="submit" value="Add comment" />
+		</div>
+	</f:form>
+
 </body>
 </html>

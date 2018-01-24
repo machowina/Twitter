@@ -1,7 +1,9 @@
 /home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/entity/Tweet.java
 /home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/repository/TweetRepository.java
+/home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/repository/CommentRepository.java
 /home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/repository/UserRepository.java
 /home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/webapp/ApplicationInitializer.java
+/home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/entity/Comment.java
 /home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/controller/HomeController.java
 /home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/entity/User.java
 /home/katarzyna/eclipse-workspace/Warsztat5/src/main/java/pl/coderslab/conf/AppConfiguration.java

@@ -1,7 +1,9 @@
+pl/coderslab/repository/CommentRepository.class
 pl/coderslab/entity/User.class
 pl/coderslab/controller/HomeController.class
 pl/coderslab/repository/UserRepository.class
 pl/coderslab/conf/AppConfiguration.class
+pl/coderslab/entity/Comment.class
 pl/coderslab/controller/UserController.class
 pl/coderslab/entity/Tweet.class
 pl/coderslab/controller/TweetController.class

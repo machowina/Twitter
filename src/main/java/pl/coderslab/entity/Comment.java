@@ -1,35 +1,31 @@
 package pl.coderslab.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.Size;
 
 @Entity
-public class Tweet {
+public class Comment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Size(max = 140, message="Wiadomość może mieć do 140 znaków.")
-	private String text;
-	private LocalDateTime created;
+	
 	@ManyToOne
-	@JoinColumn(name = "id_user")
+	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "tweet_id")
-	private Collection<Comment> comments;
+	private Tweet tweet;
+	
+	private LocalDateTime created;
+	private String text;
 	
 	
 	public long getId() {
@@ -38,11 +34,17 @@ public class Tweet {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getText() {
-		return text;
+	public User getUser() {
+		return user;
 	}
-	public void setText(String text) {
-		this.text = text;
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Tweet getTweet() {
+		return tweet;
+	}
+	public void setTweet(Tweet tweet) {
+		this.tweet = tweet;
 	}
 	public LocalDateTime getCreated() {
 		return created;
@@ -50,15 +52,15 @@ public class Tweet {
 	public void setCreated(LocalDateTime created) {
 		this.created = created;
 	}
-	public User getUser() {
-		return user;
+	public String getText() {
+		return text;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setText(String text) {
+		this.text = text;
 	}
 	@Override
 	public String toString() {
-		return "Tweet [id=" + id + ", text=" + text + ", created=" + created + ", user=" + user + "]";
+		return "Comment [id=" + id + ", user=" + user + ", tweet=" + tweet + ", created=" + created + ", text=" + text
+				+ "]";
 	}
-	
 }
