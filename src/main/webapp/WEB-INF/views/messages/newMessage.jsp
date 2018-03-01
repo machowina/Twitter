@@ -10,40 +10,18 @@
 </head>
 <body>
 	<a href='<c:url value="/"/>'>HOME PAGE</a>
-	<h2>Tweet details</h2>
 	<div>
-		<b>Id</b> <br /> ${tweet.id}
+		You are logged as <a href='<c:url value="/user/userPage/${user.id}"/>'>${user.username}</a>
 	</div>
-	<div>
-		<b>Created</b> <br /> ${tweet.created}
-	</div>
-	<div>
-		<b>User</b> <br /> ${tweet.user.username}
-	</div>
-	<div>
-		<b>Text</b> <br /> ${tweet.text}
-	</div>
-	<h5>Comments</h5>
-	<table>
-		<c:forEach items="${comments}" var="comment">
-			<tr>
-				<td>${comment.text}</td>
-			</tr>
-			<tr>
-				<td>${comment.user.username}</td>
-			</tr>
-		</c:forEach>
-		
-	</table>
-	<f:form action="" method="post" modelAttribute="newComment">
+
+	<f:form action="" method="post" modelAttribute="newMessage">
 		<div>
-			New Comment: <br />
+			Send message to: ${sendTo.username}. <br />
 			<f:textarea path="text" rows="3" cols="30" />
 		</div>
 		<div>
-			<input type="submit" value="Add comment" />
+			<input type="submit" value="Send" />
 		</div>
 	</f:form>
-
 </body>
 </html>

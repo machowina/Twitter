@@ -1,63 +1,86 @@
 package pl.coderslab.entity;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.Size;
 
 @Entity
-public class Tweet {
+public class Message {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Size(max = 140, message="Wiadomość może mieć do 140 znaków.")
 	private String text;
 	private LocalDateTime created;
-	@ManyToOne
-	@JoinColumn(name = "id_user")
-	private User user;
 	
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tweet_id")
-	private Collection<Comment> comments;
+	private Boolean notReadYet;
+	
+	@ManyToOne
+	@JoinColumn(name = "sender_id")
+	private User sender;
+	
+	@ManyToOne
+	@JoinColumn(name = "receiver_id")
+	private User receiver;
+
 	
 	
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getText() {
 		return text;
 	}
+
 	public void setText(String text) {
 		this.text = text;
 	}
+
 	public LocalDateTime getCreated() {
 		return created;
 	}
+
 	public void setCreated(LocalDateTime created) {
 		this.created = created;
 	}
-	public User getUser() {
-		return user;
+
+	public Boolean getNotReadYet() {
+		return notReadYet;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setNotReadYet(Boolean notReadYet) {
+		this.notReadYet = notReadYet;
 	}
+
+	public User getSender() {
+		return sender;
+	}
+
+	public void setSender(User sender) {
+		this.sender = sender;
+	}
+
+	public User getReceiver() {
+		return receiver;
+	}
+
+	public void setReceiver(User receiver) {
+		this.receiver = receiver;
+	}
+
 	@Override
 	public String toString() {
-		return "Tweet [id=" + id + ", text=" + text + ", created=" + created + ", user=" + user + "]";
+		return "Message [id=" + id + ", text=" + text + ", created=" + created + ", notReadYet=" + notReadYet
+				+ ", sender=" + sender + ", receiver=" + receiver + "]";
 	}
-	
 }

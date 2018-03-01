@@ -9,15 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href='<c:url value="/user/login"/>'>Zaloguj się</a>
-	<a href='<c:url value="/user/register"/>'>Zarejestruj się</a>
+	<a href='<c:url value="/user/login"/>'>Log in</a>
+	<a href='<c:url value="/user/register"/>'>Register</a>
 	
-	<h2>Strona główna</h2>
+	<h2>HOME PAGE</h2>
 	<div>
-		Jesteś zalogowany jako <a
-			href='<c:url value="/user/userPage/${user.id}"/>'>${user.username}</a>
+		You are logged as <a href='<c:url value="/user/userPage/${user.id}"/>'>${user.username}</a>
 	</div>
-	<a href='<c:url value="/user/logout"/>'>Wyloguj się</a>
+	<div>
+		<a href='<c:url value="/messages/${user.id}"/>'>Your messages</a>
+	</div>
+	<a href='<c:url value="/user/logout"/>'>Log out</a>
 
 	<f:form action="" method="post" modelAttribute="newTweet">
 
@@ -43,7 +45,7 @@
 			<tr>
 				<td>${tweet.id}</td>
 				<td>${tweet.created}</td>
-				<td>${tweet.user.username}</td>
+				<td><a href='<c:url value="/user/userPage/${tweet.user.id}"/>'>${tweet.user.username}</a></td>
 				<td>${tweet.text}</td>
 			</tr>
 		</c:forEach>

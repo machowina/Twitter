@@ -10,14 +10,14 @@
 </head>
 <body>
 <a href='<c:url value="/"/>'>STRONA GŁÓWNA</a>
-<h2>Użytkownik ${user.username} </h2>
-<h4>Wyślij wiadomość</h4>
-<h4>Tweety użytkownika</h4>
+<h2>User ${user.username} </h2>
+<h4><a href='<c:url value="/messages/send/${user.id}"/>'>Send message</a></h4>
+<h4>User tweets</h4>
 	<table>
 		<tr>
 			<th>Id</th>
-			<th>Data dodania</th>
-			<th>Treść</th>
+			<th>Date</th>
+			<th>Text</th>
 			<th>Details</th>
 		</tr>
 		<c:forEach items="${tweets}" var="tweet">

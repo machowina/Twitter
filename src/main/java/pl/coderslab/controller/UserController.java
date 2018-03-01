@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import pl.coderslab.entity.Message;
 import pl.coderslab.entity.Tweet;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.MessageRepository;
 import pl.coderslab.repository.TweetRepository;
 import pl.coderslab.repository.UserRepository;
 
@@ -30,6 +32,8 @@ public class UserController {
 	private UserRepository userRepository;
 	@Autowired
 	private TweetRepository tweetRepository;
+	@Autowired
+	private MessageRepository messageRepository;
 	
 	//USER LOGGING
 	@GetMapping(path = "/login")
@@ -71,7 +75,6 @@ public class UserController {
 		
 		if(bresult.hasErrors()) {
 			return "user/register";
-		
 		} else {
 			String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
 			user.setPassword(hashedPassword);
@@ -93,5 +96,4 @@ public class UserController {
 		return "user/userPage";
 		
 	}
-	
 }

@@ -41,9 +41,18 @@ public class User {
 	@JoinColumn(name = "id_user")
 	private Collection<Tweet> tweets;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "user_id")
 	private Collection<Comment> comments;
+	
+	@OneToMany
+	@JoinColumn(name = "sender_id")
+	private Collection<Message> sendMessages;
+	
+	@OneToMany
+	@JoinColumn(name = "recipient_id")
+	private Collection<Message> recievedMessages;
+	
 	
 	
 	public Collection<Tweet> getTweets() {

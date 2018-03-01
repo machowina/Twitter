@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href='<c:url value="/"/>'>STRONA GŁÓWNA</a>
+	<a href='<c:url value="/"/>'>HOME PAGE</a>
 	<h2>Tweet details</h2>
 	<div>
 		<b>Id</b> <br /> ${tweet.id}
